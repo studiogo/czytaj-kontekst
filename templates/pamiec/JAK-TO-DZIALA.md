@@ -1,7 +1,7 @@
 # Jak działa ten system pamięci (1 strona)
 
 Agent domyślnie zaczyna każdą rozmowę „od zera". Ten system daje mu trwałą pamięć —
-to zwykłe pliki tekstowe, które agent czyta. Cztery warstwy:
+to zwykłe pliki tekstowe, które agent czyta. Warstwy:
 
 1. TOŻSAMOŚĆ — `~/.claude/CLAUDE.md`. Kim agent jest: język, ton, twarde zasady.
    Claude Code czyta to ZAWSZE, w każdym folderze. Dlatego ma być krótki.
@@ -11,13 +11,18 @@ to zwykłe pliki tekstowe, które agent czyta. Cztery warstwy:
 
 3. DETALE — `pamiec/klienci/<nazwa>.md` i inne pliki. Cała wiedza o kliencie/projekcie.
 
-4. NAUKA — `pamiec/uwagi.md`. Twoje poprawki jako krótkie reguły. Plugin „pamięć agenta"
-   wstrzykuje ten plik na starcie KAŻDEJ sesji, więc agent zawsze zna Twoje reguły.
-   Nową regułę dopisujesz, mówiąc „zapisz poprawkę". Raz w tygodniu „przejrzyj uwagi"
-   (łączy duplikaty, usuwa nieaktualne).
+4. TWOJE REGUŁY — `pamiec/uwagi.md`. Twoje poprawki jako krótkie reguły, które Ty kontrolujesz
+   i widzisz. Wstrzykują się na starcie KAŻDEJ sesji. Nową dopisujesz, mówiąc „zapisz poprawkę".
+   Raz w tygodniu „przejrzyj uwagi" (łączy duplikaty, usuwa nieaktualne).
 
-Czego ten system NIE robi sam: nie czyta Twoich rozmów w tle i nie zgaduje reguł.
-Uczy się tylko wtedy, gdy go poprawisz i powiesz „zapisz poprawkę" — prosto i przewidywalnie.
+5. AUTO-PAMIĘĆ (wbudowana w Claude Code) — niezależnie od tego systemu Claude Code SAM zapisuje
+   Twoje korekty i preferencje do `~/.claude/projects/<projekt>/memory/` i sam je przypomina.
+   Bez klucza, bez konfiguracji. Czyli agent uczy się sam — a `uwagi.md` daje Ci dodatkowo
+   reguły, które widzisz i możesz edytować.
+
+6. HISTORIA ROZMÓW — powiedz „szukaj w historii", a agent przeszuka Twoje dawne rozmowy
+   (zapisy w `~/.claude/projects/`) po słowie-kluczu lub dacie i streści, o czym była mowa.
+   Szukanie „po znaczeniu" (bez dokładnego słowa) to osobny, opcjonalny dodatek.
 
 Bezpieczeństwo: NIE wpisuj haseł ani kluczy do tych plików. Trzymaj tylko NAZWĘ klucza;
 wartość w sejfie systemu (Menedżer poświadczeń na Windowsie / Pęk kluczy na Macu).
