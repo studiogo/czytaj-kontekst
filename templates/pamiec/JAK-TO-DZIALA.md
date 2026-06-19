@@ -22,7 +22,11 @@ to zwykłe pliki tekstowe, które agent czyta. Warstwy:
 
 6. HISTORIA ROZMÓW — powiedz „szukaj w historii", a agent przeszuka Twoje dawne rozmowy
    (zapisy w `~/.claude/projects/`) po słowie-kluczu lub dacie i streści, o czym była mowa.
-   Szukanie „po znaczeniu" (bez dokładnego słowa) to osobny, opcjonalny dodatek.
+
+7. SZUKANIE PO ZNACZENIU (opcjonalne, keyless) — włącz raz: „włącz szukanie po znaczeniu"
+   (`/wlacz-szukanie-znaczeniowe`). Stawia mały lokalny model (~30 MB, bez Ollamy, bez klucza).
+   Potem: „szukaj po znaczeniu: …" (`/szukaj-znaczenie`) znajdzie temat, nawet gdy nie pamiętasz
+   dokładnego słowa. Wymaga Pythona.
 
 Bezpieczeństwo: NIE wpisuj haseł ani kluczy do tych plików. Trzymaj tylko NAZWĘ klucza;
 wartość w sejfie systemu (Menedżer poświadczeń na Windowsie / Pęk kluczy na Macu).

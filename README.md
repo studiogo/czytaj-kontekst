@@ -9,6 +9,7 @@ na żądanie. Dla osób nietechnicznych. Bez kluczy API, bez kosztów.
 ## Co potrzebujesz
 - Claude Code (wersja 2.1.143 lub nowsza — sprawdź `/version`).
 - Git — na Windowsie zainstaluj wg instrukcji z lekcji (`winget install Git.Git`). Na Macu zwykle już jest.
+- Python — TYLKO jeśli chcesz wyszukiwanie po znaczeniu (na Windowsie: `winget install Python.Python.3.12`). Reszta działa bez Pythona.
 
 ## Instalacja (2 komendy w Claude Code)
 ```
@@ -39,9 +40,11 @@ do `~/.claude/projects/<projekt>/memory/` i sam je przypomina na starcie. Bez kl
 na Windowsie też. Ten plugin działa OBOK tego i dokłada to, czego natywne nie ma:
 **Twoje widoczne, edytowalne reguły (`uwagi.md`)** + **mapę pamięci na żądanie** + **szukanie w historii**.
 
-## Szukanie „po znaczeniu" (opcjonalny dodatek, w przygotowaniu)
+## Szukanie „po znaczeniu" (semantyczne — keyless, bez Ollamy)
 `/szukaj-historii` szuka po słowie-kluczu. Szukanie po ZNACZENIU (gdy nie pamiętasz dokładnego słowa)
-to osobny, opcjonalny dodatek — keyless, bez Ollamy (mały model lokalny). Dokładamy go po testach na Windows.
+włączasz RAZ komendą `/wlacz-szukanie-znaczeniowe` — stawia mały lokalny model (~30 MB), bez Ollamy, bez klucza API.
+Potem szukasz: `/szukaj-znaczenie "<o co chodzi>"`. Indeksuje pliki pamięci; żeby dołączyć dawne rozmowy,
+poproś o odświeżenie indeksu z rozmowami. Wymaga zainstalowanego Pythona.
 
 ## Co ten system robi, a czego nie
 **Robi:** pamięta Twoje reguły i wczytuje je sam na starcie; trzyma wiedzę o klientach do doczytania na żądanie; pozwala przeszukać dawne rozmowy.
@@ -49,4 +52,4 @@ to osobny, opcjonalny dodatek — keyless, bez Ollamy (mały model lokalny). Dok
 
 ## Prywatność
 Nie wpisuj haseł ani kluczy do plików pamięci — trzymaj tylko nazwę klucza; wartość w sejfie systemu
-(Menedżer poświadczeń na Windowsie / Pęk kluczy na Macu).
+(Menedżer poświadczeń na Windowsie / Pęk kluczy na Macu)
