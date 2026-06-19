@@ -1,5 +1,5 @@
 {
-  "description": "Wczytuje reguły z ~/.claude/pamiec/uwagi.md do kontekstu na starcie sesji.",
+  "description": "Pamięć agenta: na starcie wczytuje reguły z uwagi.md; po turze sam wyłapuje poprawki użytkownika i dopisuje je do uwagi.md (auto-uczenie, keyless).",
   "hooks": {
     "SessionStart": [
       {
@@ -9,6 +9,17 @@
             "type": "command",
             "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/wczytaj-uwagi.sh\"",
             "async": false
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/uruchom-python.sh\" \"${CLAUDE_PLUGIN_ROOT}/hooks/naucz-sie.py\"",
+            "async": true
           }
         ]
       }
