@@ -1,0 +1,13 @@
+{
+  "name": "czytaj-kontekst",
+  "description": "Materiały-pluginy do kursu „Czytaj Kontekst”.",
+  "owner": { "name": "studiogo" },
+  "plugins": [
+    {
+      "name": "pamiec-agenta",
+      "source": "./",
+      "description": "Globalna pamięć agenta: wczytuje reguły z uwagi.md na start sesji + komendy do budowy pamięci.",
+      "version": "0.1.0"
+    }
+  ]
+}

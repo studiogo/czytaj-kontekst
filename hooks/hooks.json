@@ -1,0 +1,17 @@
+{
+  "description": "Wczytuje reguły z ~/.claude/pamiec/uwagi.md do kontekstu na starcie sesji.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/wczytaj-uwagi.sh\"",
+            "async": false
+          }
+        ]
+      }
+    ]
+  }
+}

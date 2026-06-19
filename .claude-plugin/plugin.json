@@ -1,0 +1,7 @@
+{
+  "name": "pamiec-agenta",
+  "description": "Prosty polski system pamięci agenta: tożsamość, mapa na żądanie, notatki klientów i pętla nauki. Reguły z uwagi.md wczytują się na start każdej sesji.",
+  "version": "0.1.0",
+  "author": { "name": "studiogo" },
+  "license": "MIT"
+}
