@@ -19,11 +19,12 @@ Powiedz „zbuduj pamięć" (komenda `/zbuduj-pamiec`). Agent skopiuje szablony 
 `CLAUDE.md` (tylko jeśli go jeszcze nie ma — nie nadpisuje Twojego), `pamiec/MEMORY.md`, `pamiec/uwagi.md`,
 `pamiec/klienci/przyklad-klienta.md`, `pamiec/JAK-TO-DZIALA.md`. Po instalacji uzupełnij `CLAUDE.md` o swoją tożsamość.
 
-## Pętla nauki (jak agent się uczy)
-- Poprawiasz agenta → mówisz „zapisz poprawkę" (`/zapisz-poprawke`) → dopisuje JEDNĄ krótką regułę do `uwagi.md`.
-- Reguły z `uwagi.md` wczytują się SAME na starcie każdej sesji (hook pluginu) — agent zawsze je zna.
-- Raz w tygodniu „przejrzyj uwagi" (`/przejrzyj-uwagi`) — łączy duplikaty, usuwa nieaktualne, pilnuje długości.
-- NIE czyta rozmów w tle i nie zgaduje reguł — uczy się tylko z Twoich świadomych poprawek.
+## Pętla nauki (jak agent się uczy) — AUTOMATYCZNA
+- Po turze (z throttlingiem ~30 min) hook `Stop` sam czyta zapis rozmowy, wyłapuje Twoje poprawki i dopisuje je jako reguły do `uwagi.md` — przez lokalny `claude -p` (model Haiku), BEZ klucza API. Nie musisz nic mówić.
+- Możesz też dopisać ręcznie: „zapisz poprawkę" (`/zapisz-poprawke`).
+- Reguły z `uwagi.md` wczytują się SAME na starcie każdej sesji (hook `SessionStart`) — agent zawsze je zna.
+- Raz w tygodniu „przejrzyj uwagi" (`/przejrzyj-uwagi`) — łączy duplikaty, usuwa nieaktualne.
+- Prywatność: zapis rozmowy przetwarza Twój lokalny Claude Code (keyless), żeby wyłuskać reguły — nic nie idzie do zewnętrznego API.
 
 ## Pamięć na żądanie (ważne)
 W `MEMORY.md` trzymaj tylko drogowskaz do klienta. Plik klienta otwieraj DOPIERO, gdy w rozmowie

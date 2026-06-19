@@ -85,6 +85,8 @@ def _zbierz_pamiec():
     for p in PAMIEC.rglob("*.md"):
         if ".szukaj" in p.parts:
             continue
+        if p.name == "JAK-TO-DZIALA.md":   # plik-instrukcja = szum, nie wiedza usera
+            continue
         try:
             txt = p.read_text(encoding="utf-8", errors="replace")
         except Exception:

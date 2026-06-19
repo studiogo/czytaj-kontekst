@@ -11,9 +11,10 @@ to zwykłe pliki tekstowe, które agent czyta. Warstwy:
 
 3. DETALE — `pamiec/klienci/<nazwa>.md` i inne pliki. Cała wiedza o kliencie/projekcie.
 
-4. TWOJE REGUŁY — `pamiec/uwagi.md`. Twoje poprawki jako krótkie reguły, które Ty kontrolujesz
-   i widzisz. Wstrzykują się na starcie KAŻDEJ sesji. Nową dopisujesz, mówiąc „zapisz poprawkę".
-   Raz w tygodniu „przejrzyj uwagi" (łączy duplikaty, usuwa nieaktualne).
+4. NAUKA Z POPRAWEK — `pamiec/uwagi.md`. Po turze (co ~30 min) plugin SAM czyta rozmowę,
+   wyłapuje Twoje poprawki i dopisuje je jako krótkie reguły (lokalny `claude -p`, keyless) —
+   bez Twojego udziału. Reguły wstrzykują się na starcie KAŻDEJ sesji. Możesz też dopisać ręcznie
+   („zapisz poprawkę"), a raz w tygodniu „przejrzyj uwagi" porządkuje duplikaty.
 
 5. AUTO-PAMIĘĆ (wbudowana w Claude Code) — niezależnie od tego systemu Claude Code SAM zapisuje
    Twoje korekty i preferencje do `~/.claude/projects/<projekt>/memory/` i sam je przypomina.
