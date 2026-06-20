@@ -11,15 +11,42 @@ na żądanie. Dla osób nietechnicznych. Bez kluczy API, bez kosztów.
 - Git — na Windowsie zainstaluj wg instrukcji z lekcji (`winget install Git.Git`). Na Macu zwykle już jest.
 - Python — TYLKO jeśli chcesz wyszukiwanie po znaczeniu (na Windowsie: `winget install Python.Python.3.12`). Reszta działa bez Pythona.
 
-## Instalacja (2 komendy w Claude Code)
-```
-/plugin marketplace add studiogo/czytaj-kontekst
-/plugin install pamiec-agenta@czytaj-kontekst
-```
-Potem zbuduj pliki pamięci:
-```
-/zbuduj-pamiec
-```
+## Instalacja — komplet (5 kroków)
+
+Komendy z `/` wpisujesz w **Claude Code**. Komendę `winget` w **Git Bash** (Windows).
+
+**1. `/plugin marketplace add studiogo/czytaj-kontekst`**
+Dodaje repozytorium z pluginem (pobiera je przez Gita). Robisz to raz.
+
+**2. `/plugin install pamiec-agenta@czytaj-kontekst`**
+Instaluje plugin i sam wpina hooki: samouczenie + wczytywanie reguł na starcie. Gdyby nie złapał od razu — wpisz `/reload-plugins`.
+
+**3. `/zbuduj-pamiec`**
+Tworzy pliki pamięci w `~/.claude/pamiec`. Twojego `CLAUDE.md`, jeśli już istnieje, nie nadpisze.
+
+**4. `winget install Python.Python.3.12`** _(Windows; na Macu Python zwykle już jest)_
+Instaluje Pythona — potrzebuje go baza, żeby zapisywać i szukać kontekstu po znaczeniu. Po instalacji zamknij i otwórz terminal.
+
+**5. `/wlacz-szukanie-znaczeniowe`**
+Buduje bazę kontekstu: mały lokalny model (~30 MB), bez Ollamy i bez klucza. Od teraz działa `/szukaj-znaczenie "..."`.
+
+> Po tych 5 krokach masz komplet: **pamięć + samouczenie + baza do szukania po znaczeniu.**
+
+## ✅ Sprawdź, że pamięć działa
+
+Komendy z `/` wpisujesz w **Claude Code**, komendy `find`/`python` w **Git Bash** (Windows) lub Terminalu (Mac).
+
+**1. `/hooks`**
+Mają pojawić się dwa wpisy: `SessionStart → wczytaj-uwagi.sh` i `Stop → naucz-sie.py`. To znaczy, że plugin wpiął się sam.
+
+**2. Powiedz agentowi regułę + „zapisz poprawkę", potem `/clear` i zapytaj o nią**
+Po wyczyszczeniu rozmowy agent dalej ma znać tę regułę. To znaczy, że pamięć wraca między sesjami.
+
+**3. `find ~/.claude -name naucz-sie.py` → potem `python "<ścieżka>" --teraz`**
+Najpierw popraw agenta zwykłym zdaniem (bez „zapisz poprawkę"), potem odpal te dwie komendy. Wypisze „Nauczyłem się…" — czyli samouczenie działa samo.
+
+**4. `/szukaj-znaczenie "..."`** _(opcjonalnie)_
+Działa, jeśli wcześniej włączyłeś `/wlacz-szukanie-znaczeniowe`. Zapytaj innymi słowami niż w notatkach — ma trafić w dobrą notatkę.
 
 ## Co powstaje (w ~/.claude)
 - `CLAUDE.md` — tożsamość agenta (uzupełnij o siebie). Tylko jeśli jeszcze go nie masz.
@@ -52,4 +79,4 @@ poproś o odświeżenie indeksu z rozmowami. Wymaga zainstalowanego Pythona.
 
 ## Prywatność
 Nie wpisuj haseł ani kluczy do plików pamięci — trzymaj tylko nazwę klucza; wartość w sejfie systemu
-(Menedżer poświadczeń na Windowsie / Pęk kluczy na Macu)
+(Menedżer poświadczeń na Windowsie / Pęk kluczy na Macu) od
