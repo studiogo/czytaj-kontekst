@@ -1,5 +1,10 @@
 # Czytaj Kontekst — pamięć agenta (plugin Claude Code)
 
+[![Licencja: MIT](https://img.shields.io/badge/licencja-MIT-blue.svg)](LICENSE)
+[![Ostatnia zmiana](https://img.shields.io/github/last-commit/studiogo/czytaj-kontekst)](https://github.com/studiogo/czytaj-kontekst/commits)
+[![Wtyczka Claude Code](https://img.shields.io/badge/Claude%20Code-wtyczka-8A63D2)](https://github.com/studiogo/czytaj-kontekst)
+[![Zgłoszenia](https://img.shields.io/github/issues/studiogo/czytaj-kontekst)](https://github.com/studiogo/czytaj-kontekst/issues)
+
 Prosty, polski system pamięci dla Twojego agenta (Claude Code). Daje mu trwałą pamięć:
 kim jest, kogo obsługujesz, czego ma nie powtarzać — w zwykłych plikach `.md`, wczytywanych
 na żądanie. Dla osób nietechnicznych. Bez kluczy API, bez kosztów.
@@ -79,4 +84,16 @@ poproś o odświeżenie indeksu z rozmowami. Wymaga zainstalowanego Pythona.
 
 ## Prywatność
 Nie wpisuj haseł ani kluczy do plików pamięci — trzymaj tylko nazwę klucza; wartość w sejfie systemu
-(Menedżer poświadczeń na Windowsie / Pęk kluczy na Macu) od
+(Menedżer poświadczeń na Windowsie / Pęk kluczy na Macu) oddzielnie od notatek.
+
+Zanim wkleisz pliki pamięci do zgłoszenia na GitHubie, pamiętaj, że siedzą tam nazwy Twoich klientów i stan Twoich projektów.
+
+## Zgłoszenia i pomoc
+
+Coś nie działa albo instrukcja jest niejasna? [Załóż zgłoszenie](https://github.com/studiogo/czytaj-kontekst/issues/new/choose) — są trzy gotowe szablony: instalacja i hooki, zachowanie pamięci, niejasny opis. Najcenniejsze zgłoszenie to „u mnie nie zadziałało” z wklejonym tekstem z ekranu.
+
+Zanim napiszesz, zajrzyj do [CONTRIBUTING.md](CONTRIBUTING.md) — jest tam, co podać w zgłoszeniu i czego do tej wtyczki nie przyjmuję. Obowiązuje [kodeks postępowania](CODE_OF_CONDUCT.md).
+
+## Licencja
+
+MIT — patrz [LICENSE](LICENSE). Możesz tego używać, zmieniać i rozdawać, także w pracy zarobkowej.
